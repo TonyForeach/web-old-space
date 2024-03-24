@@ -11,7 +11,7 @@
             </div>
               <div class="col-12 col-lg-2 px-4 d-flex flex-column justify-content-end">
                 <a href="<?php echo URL . 'User/ExportExcel' . (isset($_GET["date1"]) && isset($_GET["date2"]) ? '?date1='.$_GET["date1"] .'&date2='.$_GET["date2"] : '') ; ?>" 
-                class="btn btn-sm btn-success shadow-sm d-none">
+                class="btn btn-sm btn-success shadow-sm">
                   <i class="fas fa-download fa-sm text-white-50"></i> Exportar a Excel</a>
               </div>
         </div>
@@ -21,24 +21,26 @@
     <div class="row d-flex justify-content-between mb-3">
         <form action="<?php echo URL . 'User/Index' . (isset($_GET['registrosPorPagina']) ? '?registrosPorPagina='.$_GET["registrosPorPagina"] : ''); ?>" method="get" class="col-12 col-lg d-lg-flex mb-4 mb-lg-0">
             <div class="col-12 col-lg-9 align-content-lg-end align-items-lg-center input-group input-daterange" id="datepicker">
-                <input type="text" class="input-sm form-control d-none" name="date1" autocomplete="off">
-                <div class="input-group-addon d-none">a</div>
-                <input type="text" class="input-sm form-control d-none" name="date2" autocomplete="off">
+                <input type="text" class="input-sm form-control" name="date1" autocomplete="off">
+                <div class="input-group-addon px-3">a</div>
+                <input type="text" class="input-sm form-control" name="date2" autocomplete="off">
             </div>
             <div class="col-12 col-lg-3">
                 <label class="form-check-label"></label>
-                <input type="submit" value="filtrar" class="btn btn-success btn-block d-none">
+                <input type="submit" value="filtrar" class="btn btn-success btn-block">
             </div>
         </form>
         <div class="col d-flex justify-content-end align-items-end">
             <div class="col d-lg-flex justify-content-lg-end">
-                <label for="registrosPorPagina" class="d-none">Registros por página:</label>
+                <label for="registrosPorPagina" class="">Registros por página:</label>
             </div>
 
-            <form class="col-4 col-lg-3" method="get" action=<?php echo URL . "User/Index" . (isset($_GET["date1"]) && isset($_GET["date2"]) ? '?date1='.$_GET["date1"] .'&date2='.$_GET["date2"] : '') . (isset($_GET['registrosPorPagina']) ? '?registrosPorPagina='.$_GET["registrosPorPagina"] : ''); ?>>
-                <input type="hidden" name="date1" value="<?php echo (isset($_GET["date1"])) ? $_GET["date1"] : ''; ?>">
-                <input type="hidden" name="date2" value="<?php echo (isset($_GET["date2"])) ? $_GET["date2"] : '' ?>">
-                <select id="registrosPorPagina" name="registrosPorPagina" class="d-none form-select" onchange="this.form.submit()">
+            <form class="col-4 col-lg-3" method="get" action="<?php echo URL . "User/Index"; ?>">
+                <?php if (isset($_GET["date1"]) && isset($_GET["date2"])): ?>
+                    <input type="hidden" name="date1" value="<?php echo $_GET["date1"]; ?>">
+                    <input type="hidden" name="date2" value="<?php echo $_GET["date2"]; ?>">
+                <?php endif; ?>
+                <select id="registrosPorPagina" name="registrosPorPagina" class="form-select" onchange="this.form.submit()">
                     <option value="5" <?php echo (isset($_GET['registrosPorPagina']) && $_GET['registrosPorPagina'] == 5) ? 'selected' : ''; ?>>5</option>
                     <option value="10" <?php echo (isset($_GET['registrosPorPagina']) && $_GET['registrosPorPagina'] == 10) ? 'selected' : ''; ?>>10</option>
                     <option value="15" <?php echo (isset($_GET['registrosPorPagina']) && $_GET['registrosPorPagina'] == 15) ? 'selected' : ''; ?>>15</option>
@@ -48,6 +50,7 @@
                     <!-- Agrega más opciones según tus necesidades -->
                 </select>
             </form>
+
         </div>
     </div>
 </div>
