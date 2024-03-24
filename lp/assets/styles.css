@@ -1,0 +1,166 @@
+:root {
+  --color-primary: #af1917;
+  --color-secondary: #efecde;
+}
+
+@font-face {
+  font-family: 'Rockwell';
+  src: url('fonts/Rockwell-Font/rockb.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.no-hover:hover {
+  background-color: inherit !important;
+  color: #941513 !important;
+}
+.text-primario {
+  color: var(--color-primary);
+}
+.btn {
+  border-radius: 5px;
+  padding: 9px 52px 9px 52px;
+  font-weight: 700;
+}
+.btn-primario {
+  background-color: var(--color-primary);
+  color: white;
+}
+.btn-primario[disabled] {
+  background-color: #af1917;
+  color: white;
+  opacity: 0.7;
+}
+.btn-primario:hover {
+  background-color: #8b1715;
+  color: white;
+}
+
+.form-check-input[type="checkbox"] {
+  border-radius: 0;
+}
+.form-label {
+  margin-bottom: 0.2rem;
+  font-weight: 700;
+}
+
+.bg-disabled{
+  background-color: #e9ecef !important;
+}
+select.custom-select {
+  appearance: none;
+  background-color: transparent;
+  background-image: url("img/flecha.png");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.5rem 1.2rem;
+  padding-right: 2rem;
+}
+
+select.custom-select:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #f0231f;
+  outline: none;
+  box-shadow: none;
+}
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #f0231f;
+  outline: none;
+  box-shadow: none;
+}
+
+.input-group:focus-within .input-group-text {
+  color: #495057;
+  background-color: #fff;
+  border-color: #f0231f;
+  outline: none;
+  box-shadow: none;
+}
+
+.rounded-right {
+  border-top-right-radius: 0.7rem;
+  border-bottom-right-radius: 0.7rem;
+}
+
+#message.show {
+  opacity: 1;
+  transform: translateY(0);
+  animation: show-message 0.5s ease-in-out;
+}
+
+@keyframes show-message {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  70% {
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .btn {
+    font-size: 16px;
+    padding: 10px 60px;
+  }
+  select.custom-select {
+    appearance: none;
+    background-color: transparent;
+    background-image: url("img/flecha.png");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1rem 0.8rem;
+    padding-right: 2rem;
+  }
+  .text-footer{
+    font-size: 10.2px !important;
+  }
+  .py-3{
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+  }
+  .fs-5{
+    font-size: 15px !important;
+    font-weight: 100 !important;
+    line-height: 25px !important;
+  }
+  .text-note{
+    font-size: 10.2px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .btn {
+    font-size: 20px;
+    padding: 11px 50px;
+  }
+  .b-l{
+    border-left: 1px solid #999999;
+  }
+  .letter-spacing{
+    letter-spacing: 0.05em;
+  }
+  .py-lg-3{
+    padding-top: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+  }
+  .container{
+    width: 800px !important;
+  }
+}
